@@ -35,8 +35,8 @@ app = Flask(__name__)
 
 
 
-PATH_TO_CKPT = '/home/haresrv/Downloads/7th Sem/Project/OBD/object_recognition_detection/ssd_mobilenet_v1_coco/frozen_inference_graph.pb'
-PATH_TO_LABELS ='/home/haresrv/Downloads/7th Sem/Project/OBD/object_recognition_detection/data/object-detection.pbtxt'
+PATH_TO_CKPT = 'ssd_mobilenet_v1_coco/frozen_inference_graph.pb'
+PATH_TO_LABELS ='data/object-detection.pbtxt'
 
 content_types = {'jpg': 'image/jpeg',
                  'jpeg': 'image/jpeg',
@@ -473,7 +473,4 @@ if __name__ == '__main__':
 
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host='0.0.0.0', port=8000, debug=False)
-
-
-
+    app.run(host='0.0.0.0', port=80, debug=False)
