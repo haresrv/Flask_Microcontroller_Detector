@@ -396,15 +396,15 @@ def realstop():
             print("Stopped")
     return render_template('main.html', photo_form=photo_form, video_form=video_form)
 
-detect_py = '/home/haresrv/Downloads/7th Sem/Project/Microcontroller Detection/ZigZag/detect.py';
-weights = '/home/haresrv/Downloads/7th Sem/Project/Microcontroller Detection/ZigZag/checkpoints/yolov4-tiny-416';
+detect_py = 'ZigZag/detect.py';
+weights = 'ZigZag/checkpoints/yolov4-tiny-416';
 
 
 @app.route('/get/<sel>')
 def cmd(sel):
   photo_form = PhotoForm(request.form)
   video_form = VideoForm(request.form)
-  img = '/home/haresrv/Downloads/7th Sem/Project/OBD/object_recognition_detection/box_'+str(sel)+'.jpg';
+  img = 'box_'+str(sel)+'.jpg';
   bashCommand = ["python",detect_py,"--weights",weights,"--size","416","--model","yolov4","--image",img];  
   process = subprocess.Popen(bashCommand, stdout=subprocess.PIPE)
   output, error = process.communicate()
@@ -473,4 +473,4 @@ if __name__ == '__main__':
 
     app.secret_key = 'super secret key'
     app.config['SESSION_TYPE'] = 'filesystem'
-    app.run(host='0.0.0.0', port=80, debug=False)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT'), debug=False)

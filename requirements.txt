@@ -1,0 +1,9 @@
+opencv-python==4.1.1.26
+lxml
+tqdm
+absl-py
+easydict
+matplotlib
+pillow
+flask
+flask_wtf

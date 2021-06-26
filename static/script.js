@@ -26,7 +26,7 @@ function act()
   if(sel!=null && sel>0)
      {
          console.log("EXEC -- "+sel);
-         window.location.replace("http://localhost:8000/get/"+String(sel-1));
+         window.location.replace("http://microcon-detector.herokuapp.com/get/"+String(sel-1));
 
      }
   else
